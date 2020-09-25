@@ -12,11 +12,11 @@ class Show < ActiveRecord::Base
   def self.lowest_rating 
     Show.minimum(:rating)
     # returns only the rating, not the Show object
-    #
   end 
   
   def self.least_popular_show 
     Show.order(rating: :asc).limit(1).first
+    # self.where("rating = ?", self.lowest_rating").first
   end  
   
   def self.ratings_sum 
